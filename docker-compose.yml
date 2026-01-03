@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # Service Base de Données (Déjà fait)
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: cocoa_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin_cocoa
+      POSTGRES_PASSWORD: secure_password_2026
+      POSTGRES_DB: cocoa_shield_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data_db:/var/lib/postgresql/data
+
+  # Service API Python (Nouveau !)
+  api:
+    build: ./backend
+    container_name: cocoa_api
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://admin_cocoa:secure_password_2026@db:5432/cocoa_shield_db
