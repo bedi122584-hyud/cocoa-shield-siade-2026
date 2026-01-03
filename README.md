@@ -1,5 +1,4 @@
 
-```markdown
 # 🛡️ Cocoa-Shield: Souveraineté Numérique du Cacao Ivoirien
 > Projet candidat au Hackathon SIADE 2026 - Thème : Agriculture Intelligente & Souveraineté.
 
