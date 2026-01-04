@@ -26,3 +26,6 @@ services:
       - db
     environment:
       DATABASE_URL: postgresql://admin_cocoa:secure_password_2026@db:5432/cocoa_shield_db
+    # AJOUTE CECI (Attention aux espaces) :
+    volumes:
+      - ./backend:/app
